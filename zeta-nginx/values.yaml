@@ -1,0 +1,25 @@
+# Default values for zeta-nginx.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+metadata:
+  name: nginx
+  labels:
+    deployment:
+      app: nginx
+    service:
+      svc: nginx-svc
+    selector:
+      pod: nginx
+
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: stable
+
+service:
+  type: NodePort
+  port: 80
+  nodePort: 30080

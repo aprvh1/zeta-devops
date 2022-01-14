@@ -1,0 +1,31 @@
+--- 
+- name: zeta-install
+  hosts: 35.232.220.174
+  remote_user: aprvh4
+  become: yes
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+  tasks:
+    - name: nginx is installed
+      yum: 
+        name: nginx 
+        state: present
+    - name: nginx service
+      service:
+        name: nginx
+        state: started
+
+    - name: docker is installed
+      yum: 
+        name: docker 
+        state: present
+    - name: docker service
+      service:
+        name: docker
+        state: started
+
+    - name: logrotate is installed
+      yum: 
+        name: logrotate 
+        state: present
